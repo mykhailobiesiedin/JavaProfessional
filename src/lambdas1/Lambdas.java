@@ -1,0 +1,47 @@
+package lambdas1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.function.ToDoubleBiFunction;
+
+public class Lambdas {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+
+        calculator.inputArgumanets(4.0, 5.0);
+        calculator.makeOperation((arg1, arg2) -> Math.pow(arg1, arg2));
+
+        calculator.inputArgumanets(4.0, 5.0);
+        calculator.makeOperation((arg1, arg2) -> arg1 + arg2);
+
+        List<String> list = new ArrayList<>(Arrays.asList("Красный--------", "Желтый----------------", "Зеленый"));
+        System.out.println(list);
+
+        list.sort((e1, e2) -> e1.compareTo(e2));
+        System.out.println(list);
+
+        list.sort((e1, e2) -> e1.length() - e2.length());
+        System.out.println(list);
+
+
+
+        // Императивный подход
+        Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            String v = it.next();
+            System.out.println(v);
+        }
+
+        // Декларативный подход
+        list.forEach(System.out::println);
+
+        TextProcessor.testTextProcessor();
+
+
+
+
+    }
+}
